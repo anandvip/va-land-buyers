@@ -1292,6 +1292,163 @@ service cloud.firestore {
             code: false
         };
 
+        // Initial data with 15 Indian names (fallback for offline mode)
+        buyersData = [
+            {
+                id: 1,
+                name: "Rajesh Kumar",
+                waitTime: 4,
+                dateAdded: "2024-10-21",
+                price: "68-70",
+                mobile: "9876543210",
+                origin: "Mumbai",
+                code: "IN"
+            },
+            {
+                id: 2,
+                name: "Priya Sharma",
+                waitTime: 3,
+                dateAdded: "2024-10-29",
+                price: "69-72",
+                mobile: "9876543211",
+                origin: "Delhi",
+                code: "IN"
+            },
+            {
+                id: 3,
+                name: "Amit Patel",
+                waitTime: 5,
+                dateAdded: "2024-11-05",
+                price: "70-75",
+                mobile: "9876543212",
+                origin: "Gujarat",
+                code: "IN"
+            },
+            {
+                id: 4,
+                name: "Sneha Gupta",
+                waitTime: 2,
+                dateAdded: "2024-11-12",
+                price: "68-71",
+                mobile: "9876543213",
+                origin: "Pune",
+                code: "IN"
+            },
+            {
+                id: 5,
+                name: "Vikram Singh",
+                waitTime: 6,
+                dateAdded: "2024-11-20",
+                price: "72-75",
+                mobile: "9876543214",
+                origin: "Rajasthan",
+                code: "IN"
+            },
+            {
+                id: 6,
+                name: "Kavya Reddy",
+                waitTime: 3,
+                dateAdded: "2024-11-28",
+                price: "69-73",
+                mobile: "9876543215",
+                origin: "Hyderabad",
+                code: "IN"
+            },
+            {
+                id: 7,
+                name: "Rahul Agarwal",
+                waitTime: 4,
+                dateAdded: "2024-12-05",
+                price: "70-74",
+                mobile: "9876543216",
+                origin: "Bangalore",
+                code: "IN"
+            },
+            {
+                id: 8,
+                name: "Pooja Jain",
+                waitTime: 3,
+                dateAdded: "2024-12-14",
+                price: "68-72",
+                mobile: "9876543217",
+                origin: "Chennai",
+                code: "IN"
+            },
+            {
+                id: 9,
+                name: "Arjun Nair",
+                waitTime: 5,
+                dateAdded: "2024-12-22",
+                price: "71-75",
+                mobile: "9876543218",
+                origin: "Kerala",
+                code: "IN"
+            },
+            {
+                id: 10,
+                name: "Divya Iyer",
+                waitTime: 2,
+                dateAdded: "2025-01-03",
+                price: "68-70",
+                mobile: "9876543219",
+                origin: "Tamil Nadu",
+                code: "IN"
+            },
+            {
+                id: 11,
+                name: "Sanjay Yadav",
+                waitTime: 4,
+                dateAdded: "2025-01-15",
+                price: "69-74",
+                mobile: "9876543220",
+                origin: "UP",
+                code: "IN"
+            },
+            {
+                id: 12,
+                name: "Meera Choudhary (UAE)",
+                waitTime: 3,
+                dateAdded: "2025-01-28",
+                price: "73-79",
+                mobile: "1505987633",
+                origin: "Dubai",
+                code: "AE"
+            },
+            {
+                id: 13,
+                name: "Karan Devgan (USA)",
+                waitTime: 10,
+                dateAdded: "2025-05-08",
+                price: "72-78",
+                mobile: "+1762 654 3222",
+                origin: "United States",
+                code: "US"
+            },
+            {
+                id: 14,
+                name: "Anjali Verma",
+                waitTime: 3,
+                dateAdded: "2025-02-20",
+                price: "68-71",
+                mobile: "9876543223",
+                origin: "Haryana",
+                code: "IN"
+            },
+            {
+                id: 15,
+                name: "Rohit Pandey",
+                waitTime: 4,
+                dateAdded: "2025-03-05",
+                price: "69-75",
+                mobile: "9876543224",
+                origin: "Madhya Pradesh",
+                code: "IN"
+            }
+        ];
+
+        // Initialize filteredData
+        filteredData = [...buyersData];
+
         // Firebase Functions
         async function loadDataFromFirestore() {
             if (!isFirebaseEnabled) return;
@@ -1553,7 +1710,8 @@ service cloud.firestore {
         function updateAuthStatus() {
             const authStatusModal = document.getElementById('authStatusModal');
             if (authStatusModal) {
-                if (currentUser) {
+                // ✅ Safety check for currentUser
+                if (currentUser && currentUser.email) {
                     authStatusModal.innerHTML = `🔐 Admin Authenticated (${currentUser.email})`;
                     authStatusModal.style.color = '#27ae60';
                 } else {
@@ -1745,12 +1903,15 @@ service cloud.firestore {
             
             document.body.appendChild(statusDiv);
             
-            // Update status when auth state changes
+            // Update status when auth state changes (with safety check)
             if (isFirebaseEnabled) {
                 setInterval(() => {
-                    statusDiv.textContent = currentUser ? 
-                        '🔐 Authenticated + Cloud Sync' : 
-                        '🔥 Cloud Sync: ON';
+                    // ✅ Safety check for currentUser
+                    if (currentUser && currentUser.email) {
+                        statusDiv.textContent = '🔐 Authenticated + Cloud Sync';
+                    } else {
+                        statusDiv.textContent = '🔥 Cloud Sync: ON';
+                    }
                 }, 2000);
             }
         }
