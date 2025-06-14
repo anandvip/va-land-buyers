@@ -510,6 +510,86 @@
                 transform: translateY(0) scale(1);
             }
         }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px 20px 20px;
+            margin-top: 40px;
+            border-top: 3px solid #3498db;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-left, .footer-right {
+            text-align: center;
+        }
+
+        .footer-left h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-left p, .footer-right p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 4px 0;
+        }
+
+        .footer-center {
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
+            padding: 0 20px;
+        }
+
+        .footer-center p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .prepared-by {
+            font-size: 0.85rem !important;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .prepared-by strong {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-center {
+                border: none;
+                padding: 15px 0;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+            
+            .footer-left h4 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -638,6 +718,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>🌾 Anand Agro Farms</h4>
+                <p>Premium Agricultural Land Development</p>
+            </div>
+            <div class="footer-center">
+                <p>&copy; 2025 Anand Agro Farms. All rights reserved.</p>
+                <p class="prepared-by">Prepared by <strong>Vipul Anand</strong></p>
+            </div>
+            <div class="footer-right">
+                <p>🏠 5 Acre Premium Plots</p>
+                <p>📈 Strategic Investment Opportunities</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Settings Modal -->
     <div class="modal-overlay" id="settingsModal" onclick="closeSettingsModal(event)">
