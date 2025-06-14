@@ -1527,21 +1527,10 @@ service cloud.firestore {
             }
         }
 
-        // Initialize the application
+        // ✅ UPDATED: Initialize only basic page setup (no data loading)
         function init() {
-            setupEventListeners();
-            updateColumnVisibility();
-            addConnectionStatus();
-            
-            // Update authentication status in modal
-            updateAuthStatus();
-            
-            // If Firebase is not enabled, render local data immediately (development mode)
-            if (!isFirebaseEnabled) {
-                renderTable();
-                updateStats();
-                updateFOMODisplay();
-            }
+            // Only basic page setup - no data loading or authenticated features
+            console.log("🔄 Basic page initialization...");
             
             // Add CSS animations for notifications
             const style = document.createElement('style');
@@ -1556,6 +1545,9 @@ service cloud.firestore {
                 }
             `;
             document.head.appendChild(style);
+            
+            // Show login screen by default
+            showLoginScreen();
         }
 
         function updateAuthStatus() {
@@ -1614,6 +1606,12 @@ service cloud.firestore {
         }
 
         function addBuyer() {
+            // ✅ Authentication check before any data operations
+            if (isFirebaseEnabled && (!currentUser || currentUser.email !== ADMIN_EMAIL)) {
+                showNotification('❌ Unauthorized: Admin login required', 'error');
+                return;
+            }
+
             const name = document.getElementById('buyerName').value.trim();
             const waitTime = parseInt(document.getElementById('waitTime').value);
             const price = document.getElementById('priceRange').value.trim();
@@ -1645,7 +1643,7 @@ service cloud.firestore {
             // Add to local array first for immediate UI update
             buyersData.unshift(newBuyer);
             
-            // Save to Firestore asynchronously
+            // Save to Firestore asynchronously (with auth check inside)
             if (isFirebaseEnabled) {
                 addBuyerToFirestore(newBuyer).then((firestoreId) => {
                     // Update the ID with Firestore document ID
@@ -1672,11 +1670,17 @@ service cloud.firestore {
         }
 
         function deleteBuyer(id) {
+            // ✅ Authentication check before any data operations
+            if (isFirebaseEnabled && (!currentUser || currentUser.email !== ADMIN_EMAIL)) {
+                showNotification('❌ Unauthorized: Admin login required', 'error');
+                return;
+            }
+
             if (confirm('Are you sure you want to remove this buyer from the waiting list?')) {
                 // Remove from local array first for immediate UI update
                 buyersData = buyersData.filter(buyer => buyer.id !== id);
                 
-                // Delete from Firestore asynchronously
+                // Delete from Firestore asynchronously (with auth check inside)
                 if (isFirebaseEnabled) {
                     deleteBuyerFromFirestore(id);
                 }
