@@ -65,6 +65,48 @@
             fill: white;
         }
 
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(231, 76, 60, 0.8);
+            border: 2px solid rgba(231, 76, 60, 0.9);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logout-btn:hover {
+            background: rgba(231, 76, 60, 1);
+            border-color: rgba(231, 76, 60, 1);
+            transform: translateY(-2px);
+        }
+
+        .admin-info {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .admin-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
@@ -331,71 +373,6 @@
             opacity: 0.95;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                border-radius: 10px;
-            }
-            
-            .settings-gear {
-                top: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-            }
-            
-            .settings-gear svg {
-                width: 18px;
-                height: 18px;
-            }
-            
-            .header {
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                padding: 20px;
-            }
-            
-            .control-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .checkbox-group {
-                flex-direction: column;
-            }
-            
-            table {
-                font-size: 0.8rem;
-            }
-            
-            th, td {
-                padding: 8px 6px;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin: 10px;
-            }
-            
-            .modal-body {
-                padding: 20px;
-            }
-        }
-
-        .export-section {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e8f5e8;
-            border-radius: 8px;
-            border-left: 4px solid #28a745;
-        }
-
         .priority-high {
             background: #ffebee !important;
             border-left: 3px solid #f44336;
@@ -409,186 +386,6 @@
         .priority-low {
             background: #f3e5f5 !important;
             border-left: 3px solid #9c27b0;
-        }
-
-        /* Settings Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-overlay.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            padding: 0;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            font-size: 1.4rem;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: rgba(255,255,255,0.2);
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .settings-section {
-            margin-bottom: 30px;
-        }
-
-        .settings-section h4 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.1rem;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 8px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 30px 20px 20px;
-            margin-top: 40px;
-            border-top: 3px solid #3498db;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 30px;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-left, .footer-right {
-            text-align: center;
-        }
-
-        .footer-left h4 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #3498db, #2ecc71);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-left p, .footer-right p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 4px 0;
-        }
-
-        .footer-center {
-            text-align: center;
-            border-left: 1px solid rgba(255,255,255,0.2);
-            border-right: 1px solid rgba(255,255,255,0.2);
-            padding: 0 20px;
-        }
-
-        .footer-center p {
-            margin: 8px 0;
-            font-size: 0.95rem;
-        }
-
-        .prepared-by {
-            font-size: 0.85rem !important;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        .prepared-by strong {
-            color: #3498db;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .footer-center {
-                border: none;
-                padding: 15px 0;
-                border-top: 1px solid rgba(255,255,255,0.2);
-                border-bottom: 1px solid rgba(255,255,255,0.2);
-            }
-            
-            .footer-left h4 {
-                font-size: 1.2rem;
-            }
         }
 
         /* Login Screen Styles */
@@ -689,70 +486,237 @@
             color: #495057;
         }
 
-        /* Header Authentication Elements */
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(231, 76, 60, 0.8);
-            border: 2px solid rgba(231, 76, 60, 0.9);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
+        /* Settings Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.show {
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
         }
 
-        .logout-btn:hover {
-            background: rgba(231, 76, 60, 1);
-            border-color: rgba(231, 76, 60, 1);
-            transform: translateY(-2px);
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 0;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
         }
 
-        .admin-info {
-            position: absolute;
-            bottom: 10px;
-            right: 20px;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+        .modal-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .admin-info p {
+        .modal-header h3 {
             margin: 0;
-            font-size: 0.85rem;
+            font-size: 1.4rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .settings-section {
+            margin-bottom: 30px;
+        }
+
+        .settings-section h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px 20px 20px;
+            margin-top: 40px;
+            border-top: 3px solid #3498db;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-left, .footer-right {
+            text-align: center;
+        }
+
+        .footer-left h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-left p, .footer-right p {
+            font-size: 0.9rem;
             opacity: 0.9;
+            margin: 4px 0;
+        }
+
+        .footer-center {
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
+            padding: 0 20px;
+        }
+
+        .footer-center p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .prepared-by {
+            font-size: 0.85rem !important;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .prepared-by strong {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         @media (max-width: 768px) {
-            .login-container {
-                margin: 20px;
-                width: calc(100% - 40px);
+            .container {
+                margin: 10px;
+                border-radius: 10px;
             }
             
-            .login-header {
-                padding: 20px;
+            .settings-gear, .logout-btn {
+                top: 15px;
+                width: 40px;
+                height: 40px;
             }
             
-            .login-logo h1 {
-                font-size: 1.7rem;
-            }
-            
-            .login-form {
-                padding: 20px;
+            .settings-gear svg {
+                width: 18px;
+                height: 18px;
             }
             
             .logout-btn {
-                top: 15px;
                 left: 15px;
-                width: 40px;
-                height: 40px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                padding: 20px;
+            }
+            
+            .control-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+            }
+            
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-center {
+                border: none;
+                padding: 15px 0;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                border-bottom: 1px solid rgba(255,255,255,0.2);
             }
             
             .admin-info {
@@ -776,7 +740,6 @@
                     <h1>🌾 Anand Agro Farms</h1>
                     <p>Admin Access Portal</p>
                 </div>
-    </div>
             </div>
             <div class="login-form">
                 <h3>🔐 Secure Login Required</h3>
@@ -803,6 +766,9 @@
                 <div class="login-info">
                     <p><strong>Authorized Personnel Only</strong></p>
                     <p>Contact Vipul Anand for access</p>
+                    <p style="font-size: 0.75rem; color: #95a5a6; margin-top: 15px;">
+                        Demo: Use password "admin123" to access
+                    </p>
                 </div>
             </div>
         </div>
@@ -811,148 +777,153 @@
     <!-- Main Application (Hidden until authenticated) -->
     <div class="app-container" id="mainApp" style="display: none;">
         <div class="container">
-        <div class="header">
-            <div class="settings-gear" onclick="openSettingsModal()" title="Admin Settings">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11.03L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11.03C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
-                </svg>
+            <div class="header">
+                <div class="logout-btn" onclick="logoutAdmin()" title="Logout">
+                    🚪
+                </div>
+                <div class="settings-gear" onclick="openSettingsModal()" title="Admin Settings">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11.03L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11.03C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                    </svg>
+                </div>
+                <div class="admin-info">
+                    <p>👤 <span id="adminEmailDisplay">Admin</span></p>
+                </div>
+                <h1>🏠 Property Buyer Waiting List</h1>
+                <p>Strategic FOMO Management for Property Sales</p>
             </div>
-            <h1>🏠 Property Buyer Waiting List</h1>
-            <p>Strategic FOMO Management for Property Sales</p>
-        </div>
         
-        <div class="controls">
-            <!-- FOMO Display Section -->
-            <div class="fomo-display" id="fomoDisplay">
-                <h3>🔥 High Demand Alert!</h3>
-                <p id="fomoText">15 serious buyers currently waiting. Average wait time: 3.2 months</p>
-            </div>
+            <div class="controls">
+                <!-- FOMO Display Section -->
+                <div class="fomo-display" id="fomoDisplay">
+                    <h3>🔥 High Demand Alert!</h3>
+                    <p id="fomoText">15 serious buyers currently waiting. Average wait time: 3.2 months</p>
+                </div>
 
-            <!-- Statistics -->
-            <div class="stats">
-                <div class="stat-card">
-                    <h3 id="totalBuyers">15</h3>
-                    <p>Total Buyers</p>
+                <!-- Statistics -->
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3 id="totalBuyers">15</h3>
+                        <p>Total Buyers</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="avgWaitTime">3.2</h3>
+                        <p>Avg. Wait (Months)</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="recentEntries">8</h3>
+                        <p>This Month</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="priorityBuyers">5</h3>
+                        <p>Priority Buyers</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <h3 id="avgWaitTime">3.2</h3>
-                    <p>Avg. Wait (Months)</p>
-                </div>
-                <div class="stat-card">
-                    <h3 id="recentEntries">8</h3>
-                    <p>This Month</p>
-                </div>
-                <div class="stat-card">
-                    <h3 id="priorityBuyers">5</h3>
-                    <p>Priority Buyers</p>
-                </div>
-            </div>
 
-            <!-- Column Visibility Controls - Moved to Modal -->
-
-            <!-- Add New Buyer Form -->
-            <div class="control-row">
-                <div class="form-group">
-                    <label for="buyerName">Buyer Name</label>
-                    <input type="text" id="buyerName" placeholder="Enter buyer name">
+                <!-- Add New Buyer Form -->
+                <div class="control-row">
+                    <div class="form-group">
+                        <label for="buyerName">Buyer Name</label>
+                        <input type="text" id="buyerName" placeholder="Enter buyer name">
+                    </div>
+                    <div class="form-group">
+                        <label for="waitTime">Wait Time (Months)</label>
+                        <select id="waitTime">
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                            <option value="4">4 Months</option>
+                            <option value="5">5 Months</option>
+                            <option value="6">6 Months</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="priceGroup" style="display: none;">
+                        <label for="priceRange">Budget Range (Lakhs)</label>
+                        <input type="text" id="priceRange" placeholder="e.g., 68-72">
+                    </div>
+                    <div class="form-group" id="mobileGroup" style="display: none;">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="tel" id="mobileNumber" placeholder="10-digit mobile">
+                    </div>
+                    <div class="form-group" id="originGroup" style="display: none;">
+                        <label for="originLocation">Origin/Location</label>
+                        <input type="text" id="originLocation" placeholder="e.g., Mumbai, Dubai, USA">
+                    </div>
+                    <div class="form-group" id="codeGroup" style="display: none;">
+                        <label for="countryCode">Country Code</label>
+                        <select id="countryCode">
+                            <option value="IN">🇮🇳 India (IN)</option>
+                            <option value="AE">🇦🇪 UAE (AE)</option>
+                            <option value="US">🇺🇸 USA (US)</option>
+                            <option value="UK">🇬🇧 UK (UK)</option>
+                            <option value="CA">🇨🇦 Canada (CA)</option>
+                            <option value="AU">🇦🇺 Australia (AU)</option>
+                            <option value="SG">🇸🇬 Singapore (SG)</option>
+                            <option value="OTHER">🌍 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-primary" onclick="addBuyer()">Add Buyer</button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="waitTime">Wait Time (Months)</label>
-                    <select id="waitTime">
+
+                <!-- Search and Filter -->
+                <div class="search-filter">
+                    <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search buyers by name, location, country...">
+                    <select id="filterWaitTime" class="form-group">
+                        <option value="">All Wait Times</option>
                         <option value="2">2 Months</option>
                         <option value="3">3 Months</option>
                         <option value="4">4 Months</option>
                         <option value="5">5 Months</option>
                         <option value="6">6 Months</option>
                     </select>
-                </div>
-                <div class="form-group" id="priceGroup" style="display: none;">
-                    <label for="priceRange">Budget Range (Lakhs)</label>
-                    <input type="text" id="priceRange" placeholder="e.g., 68-72">
-                </div>
-                <div class="form-group" id="mobileGroup" style="display: none;">
-                    <label for="mobileNumber">Mobile Number</label>
-                    <input type="tel" id="mobileNumber" placeholder="10-digit mobile">
-                </div>
-                <div class="form-group" id="originGroup" style="display: none;">
-                    <label for="originLocation">Origin/Location</label>
-                    <input type="text" id="originLocation" placeholder="e.g., Mumbai, Dubai, USA">
-                </div>
-                <div class="form-group" id="codeGroup" style="display: none;">
-                    <label for="countryCode">Country Code</label>
-                    <select id="countryCode">
-                        <option value="IN">🇮🇳 India (IN)</option>
-                        <option value="AE">🇦🇪 UAE (AE)</option>
-                        <option value="US">🇺🇸 USA (US)</option>
-                        <option value="UK">🇬🇧 UK (UK)</option>
-                        <option value="CA">🇨🇦 Canada (CA)</option>
-                        <option value="AU">🇦🇺 Australia (AU)</option>
-                        <option value="SG">🇸🇬 Singapore (SG)</option>
-                        <option value="OTHER">🌍 Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>&nbsp;</label>
-                    <button class="btn btn-primary" onclick="addBuyer()">Add Buyer</button>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                    <button class="btn btn-primary" onclick="exportData()">📊 Export List</button>
                 </div>
             </div>
 
-            <!-- Search and Filter -->
-            <div class="search-filter">
-                <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search buyers by name, location, country...">
-                <select id="filterWaitTime" class="form-group">
-                    <option value="">All Wait Times</option>
-                    <option value="2">2 Months</option>
-                    <option value="3">3 Months</option>
-                    <option value="4">4 Months</option>
-                    <option value="5">5 Months</option>
-                    <option value="6">6 Months</option>
-                </select>
-                <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
-                <button class="btn btn-primary" onclick="exportData()">📊 Export List</button>
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table id="buyersTable">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-column="name" id="nameHeader">Buyer Name</th>
+                                <th class="sortable" data-column="waitTime" id="waitTimeHeader">Wait Time (Months)</th>
+                                <th class="sortable" data-column="dateAdded" id="dateAddedHeader">Date Added</th>
+                                <th class="sortable hidden-column" data-column="price" id="priceHeader">Budget Range</th>
+                                <th class="sortable hidden-column" data-column="mobile" id="mobileHeader">Mobile Number</th>
+                                <th class="sortable hidden-column" data-column="origin" id="originHeader">Origin/Location</th>
+                                <th class="sortable hidden-column" data-column="code" id="codeHeader">Country</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buyersTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <div class="table-container">
-            <div class="table-wrapper">
-                <table id="buyersTable">
-                    <thead>
-                        <tr>
-                            <th class="sortable" data-column="name" id="nameHeader">Buyer Name</th>
-                            <th class="sortable" data-column="waitTime" id="waitTimeHeader">Wait Time (Months)</th>
-                            <th class="sortable" data-column="dateAdded" id="dateAddedHeader">Date Added</th>
-                            <th class="sortable hidden-column" data-column="price" id="priceHeader">Budget Range</th>
-                            <th class="sortable hidden-column" data-column="mobile" id="mobileHeader">Mobile Number</th>
-                            <th class="sortable hidden-column" data-column="origin" id="originHeader">Origin/Location</th>
-                            <th class="sortable hidden-column" data-column="code" id="codeHeader">Country</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="buyersTableBody">
-                        <!-- Data will be populated by JavaScript -->
-                    </tbody>
-                </table>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>🌾 Anand Agro Farms</h4>
+                    <p>Premium Agricultural Land Development</p>
+                </div>
+                <div class="footer-center">
+                    <p>&copy; 2025 Anand Agro Farms. All rights reserved.</p>
+                    <p class="prepared-by">Prepared by <strong>Vipul Anand</strong></p>
+                </div>
+                <div class="footer-right">
+                    <p>🏠 5 Acre Premium Plots</p>
+                    <p>📈 Strategic Investment Opportunities</p>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <h4>🌾 Anand Agro Farms</h4>
-                <p>Premium Agricultural Land Development</p>
-            </div>
-            <div class="footer-center">
-                <p>&copy; 2025 Anand Agro Farms. All rights reserved.</p>
-                <p class="prepared-by">Prepared by <strong>Vipul Anand</strong></p>
-            </div>
-            <div class="footer-right">
-                <p>🏠 5 Acre Premium Plots</p>
-                <p>📈 Strategic Investment Opportunities</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- Settings Modal -->
     <div class="modal-overlay" id="settingsModal" onclick="closeSettingsModal(event)">
@@ -962,6 +933,13 @@
                 <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
             </div>
             <div class="modal-body">
+                <!-- Authentication Status -->
+                <div class="settings-section">
+                    <h4>🔐 Authentication Status</h4>
+                    <p><strong>Current User:</strong> <span id="authStatusModal">⚠️ Not Authenticated</span></p>
+                    <p><strong>Firebase Status:</strong> <span id="firebaseStatusModal">⚠️ Offline Mode</span></p>
+                </div>
+
                 <!-- Column Visibility Settings -->
                 <div class="settings-section">
                     <h4>📊 Column Visibility Settings</h4>
@@ -1003,7 +981,7 @@
                 <!-- Firebase Configuration -->
                 <div class="settings-section">
                     <h4>🔥 Firebase Cloud Sync Setup</h4>
-                    <p><strong>Current Status:</strong> <span id="firebaseStatusModal">⚠️ Offline Mode</span></p>
+                    <p><strong>Current Status:</strong> <span id="firebaseStatusModalExtra">⚠️ Offline Mode</span></p>
                     
                     <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
                         <h5 style="margin-bottom: 10px; color: #2c3e50;">📋 Quick Setup Guide:</h5>
@@ -1017,72 +995,12 @@
                         </ol>
                     </div>
 
-                    <!-- Firestore Security Rules -->
-                    <div style="background: #fff5f5; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #e74c3c;">
-                        <h5 style="margin-bottom: 10px; color: #c0392b;">🔒 Required Firestore Security Rules</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 10px; color: #e74c3c;">
-                            Copy and paste these rules in Firebase Console → Firestore Database → Rules:
-                        </p>
-                        <div style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 0.8rem; overflow-x: auto;">
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Allow read/write access to buyers collection
-    match /buyers/{document} {
-      allow read, write: if true;
-    }
-  }
-}
-                        </div>
-                        <div style="margin-top: 10px; padding: 10px; background: #ffeaa7; border-radius: 5px;">
-                            <strong>⚠️ Security Note:</strong> <span style="font-size: 0.85rem;">
-                                These rules allow open access for simplicity. For production use, implement proper authentication and restrict access to authorized users only.
-                            </span>
-                        </div>
-                        <button onclick="copySecurityRules()" class="btn btn-secondary" style="margin-top: 10px; font-size: 0.85rem;">
-                            📋 Copy Security Rules
-                        </button>
-                        <button onclick="retryFirebaseConnection()" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; font-size: 0.85rem;">
-                            🔄 Retry Connection
-                        </button>
-                    </div>
-
-                    <!-- Troubleshooting Section -->
-                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196f3;">
-                        <h5 style="margin-bottom: 10px; color: #1565c0;">🔧 Troubleshooting Common Issues</h5>
-                        <div style="font-size: 0.9rem; color: #1565c0;">
-                            <p><strong>❌ "Missing or insufficient permissions":</strong></p>
-                            <ul style="margin-left: 20px; margin-bottom: 10px;">
-                                <li>Copy and apply the security rules above in Firestore → Rules</li>
-                                <li>Click "Publish" in the Firestore Rules editor</li>
-                                <li>Use the "🔄 Retry Connection" button</li>
-                            </ul>
-                            
-                            <p><strong>❌ "Failed to get document":</strong></p>
-                            <ul style="margin-left: 20px; margin-bottom: 10px;">
-                                <li>Ensure Firestore Database is enabled (not Realtime Database)</li>
-                                <li>Check your Firebase project ID in the config</li>
-                                <li>Verify internet connection</li>
-                            </ul>
-                            
-                            <p><strong>❌ Configuration errors:</strong></p>
-                            <ul style="margin-left: 20px;">
-                                <li>Double-check all Firebase config values</li>
-                                <li>Ensure no extra quotes or spaces in config</li>
-                                <li>Refresh page after updating config</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
-                        <h5 style="margin-bottom: 8px; color: #155724;">✅ Benefits of Cloud Sync:</h5>
-                        <ul style="margin-left: 20px; font-size: 0.9rem; color: #155724;">
-                            <li>Real-time sync across multiple devices</li>
-                            <li>Automatic data backup and recovery</li>
-                            <li>Multi-user access for team management</li>
-                            <li>No data loss on browser refresh/crash</li>
-                        </ul>
-                    </div>
+                    <button onclick="copySecurityRules()" class="btn btn-secondary" style="margin-top: 10px; font-size: 0.85rem;">
+                        📋 Copy Security Rules
+                    </button>
+                    <button onclick="retryFirebaseConnection()" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; font-size: 0.85rem;">
+                        🔄 Retry Connection
+                    </button>
                 </div>
 
                 <!-- FOMO Strategy Tips -->
@@ -1097,7 +1015,6 @@ service cloud.firestore {
                             <li><strong>Sort by Date:</strong> Highlight recent high demand</li>
                             <li><strong>Use Statistics:</strong> "15 buyers waiting" creates pressure</li>
                             <li><strong>Show International Interest:</strong> Mix of UAE/US buyers shows global appeal</li>
-                            <li><strong>Hide Origin/Country:</strong> Keep international interest subtle but visible</li>
                         </ul>
                     </div>
                 </div>
@@ -1111,7 +1028,13 @@ service cloud.firestore {
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     
     <script>
-        // Firebase Configuration - Your Project Settings
+        // ✅ AUTHENTICATION CONSTANTS AND VARIABLES
+        const ADMIN_EMAIL = "aaf@vipulanand.in";
+        const ADMIN_PASSWORD = "admin123"; // In production, use secure authentication
+        let currentUser = null;
+        let isAuthenticated = false;
+
+        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCvQBwZaHy6DjmLlp9DJnST9gnAsQCccPQ",
             authDomain: "buyerdata-a3508.firebaseapp.com",
@@ -1137,8 +1060,6 @@ service cloud.firestore {
                     .then(() => {
                         console.log("🔥 Firestore connection successful!");
                         updateFirebaseStatus('✅ Connected - Cloud sync enabled', '#27ae60');
-                        // Load data from Firestore on startup
-                        loadDataFromFirestore();
                     })
                     .catch((error) => {
                         console.error("🔥 Firestore connection test failed:", error);
@@ -1154,146 +1075,8 @@ service cloud.firestore {
             updateFirebaseStatus('❌ Firebase Error - Running Offline', '#e74c3c');
         }
 
-        // Initial data with 15 Indian names (fallback for offline mode)
+        // Initial data with buyers
         let buyersData = [
-            {
-                id: 1,
-                name: "Rajesh Kumar",
-                waitTime: 4,
-                dateAdded: "2024-10-21",
-                price: "68-70",
-                mobile: "9876543210"
-            },
-            {
-                id: 2,
-                name: "Priya Sharma",
-                waitTime: 3,
-                dateAdded: "2024-10-29",
-                price: "69-72",
-                mobile: "9876543211"
-            },
-            {
-                id: 3,
-                name: "Amit Patel",
-                waitTime: 5,
-                dateAdded: "2024-11-05",
-                price: "70-75",
-                mobile: "9876543212"
-            },
-            {
-                id: 4,
-                name: "Sneha Gupta",
-                waitTime: 2,
-                dateAdded: "2024-11-12",
-                price: "68-71",
-                mobile: "9876543213"
-            },
-            {
-                id: 5,
-                name: "Vikram Singh",
-                waitTime: 6,
-                dateAdded: "2024-11-20",
-                price: "72-75",
-                mobile: "9876543214"
-            },
-            {
-                id: 6,
-                name: "Kavya Reddy",
-                waitTime: 3,
-                dateAdded: "2024-11-28",
-                price: "69-73",
-                mobile: "9876543215"
-            },
-            {
-                id: 7,
-                name: "Rahul Agarwal",
-                waitTime: 4,
-                dateAdded: "2024-12-05",
-                price: "70-74",
-                mobile: "9876543216"
-            },
-            {
-                id: 8,
-                name: "Pooja Jain",
-                waitTime: 3,
-                dateAdded: "2024-12-14",
-                price: "68-72",
-                mobile: "9876543217"
-            },
-            {
-                id: 9,
-                name: "Arjun Nair",
-                waitTime: 5,
-                dateAdded: "2024-12-22",
-                price: "71-75",
-                mobile: "9876543218"
-            },
-            {
-                id: 10,
-                name: "Divya Iyer",
-                waitTime: 2,
-                dateAdded: "2025-01-03",
-                price: "68-70",
-                mobile: "9876543219"
-            },
-            {
-                id: 11,
-                name: "Sanjay Yadav",
-                waitTime: 4,
-                dateAdded: "2025-01-15",
-                price: "69-74",
-                mobile: "9876543220"
-            },
-            {
-                id: 12,
-                name: "Meera Choudhary",
-                waitTime: 3,
-                dateAdded: "2025-01-28",
-                price: "70-73",
-                mobile: "9876543221"
-            },
-            {
-                id: 13,
-                name: "Karan Malhotra",
-                waitTime: 6,
-                dateAdded: "2025-02-08",
-                price: "72-75",
-                mobile: "9876543222"
-            },
-            {
-                id: 14,
-                name: "Anjali Verma",
-                waitTime: 3,
-                dateAdded: "2025-02-20",
-                price: "68-71",
-                mobile: "9876543223"
-            },
-            {
-                id: 15,
-                name: "Rohit Pandey",
-                waitTime: 4,
-                dateAdded: "2025-03-05",
-                price: "69-75",
-                mobile: "9876543224"
-            }
-        ];
-
-        let currentSort = { column: 'dateAdded', direction: 'desc' };
-        let filteredData = [...buyersData];
-
-        // Column visibility settings
-        const columnVisibility = {
-            name: true,
-            waitTime: true,
-            dateAdded: true,
-            price: false,
-            mobile: false,
-            origin: false,
-            code: false
-        };
-
-        // Initial data with 15 Indian names (fallback for offline mode)
-        buyersData = [
             {
                 id: 1,
                 name: "Rajesh Kumar",
@@ -1446,12 +1229,271 @@ service cloud.firestore {
             }
         ];
 
-        // Initialize filteredData
-        filteredData = [...buyersData];
+        let currentSort = { column: 'dateAdded', direction: 'desc' };
+        let filteredData = [...buyersData];
 
-        // Firebase Functions
+        // Column visibility settings
+        const columnVisibility = {
+            name: true,
+            waitTime: true,
+            dateAdded: true,
+            price: false,
+            mobile: false,
+            origin: false,
+            code: false
+        };
+
+        // ✅ AUTHENTICATION FUNCTIONS
+        function loginAdmin() {
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            const loginError = document.getElementById('loginError');
+            const loginBtn = document.getElementById('loginBtn');
+
+            // Clear previous errors
+            loginError.style.display = 'none';
+
+            // Validate input
+            if (!email || !password) {
+                showLoginError('Please enter both email and password');
+                return;
+            }
+
+            // Show loading state
+            loginBtn.textContent = '🔄 Authenticating...';
+            loginBtn.disabled = true;
+
+            // Simulate authentication delay
+            setTimeout(() => {
+                // Simple authentication check (in production, use proper auth)
+                if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                    // Success
+                    currentUser = { 
+                        email: email,
+                        loginTime: new Date(),
+                        isAdmin: true
+                    };
+                    isAuthenticated = true;
+                    
+                    // Update UI
+                    document.getElementById('adminEmailDisplay').textContent = email;
+                    
+                    // Hide login screen and show main app
+                    hideLoginScreen();
+                    showMainApp();
+                    
+                    // Initialize authenticated features
+                    initializeAuthenticatedApp();
+                    
+                    showNotification('✅ Login successful! Welcome back.', 'success');
+                    console.log("🔐 Admin authenticated successfully");
+                } else {
+                    // Failed authentication
+                    showLoginError('Invalid credentials. Please check your email and password.');
+                    console.log("❌ Authentication failed");
+                }
+                
+                // Reset button
+                loginBtn.textContent = '🔑 Login to Dashboard';
+                loginBtn.disabled = false;
+            }, 1000);
+        }
+
+        function logoutAdmin() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Clear authentication state
+                currentUser = null;
+                isAuthenticated = false;
+                
+                // Clear sensitive data from UI
+                document.getElementById('adminEmailDisplay').textContent = 'Admin';
+                
+                // Hide main app and show login screen
+                hideMainApp();
+                showLoginScreen();
+                
+                // Clear form data
+                clearAllForms();
+                
+                showNotification('🚪 Logged out successfully', 'info');
+                console.log("🔐 Admin logged out");
+            }
+        }
+
+        function showLoginScreen() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('mainApp').style.display = 'none';
+            // Clear password field for security
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function hideLoginScreen() {
+            document.getElementById('loginScreen').style.display = 'none';
+        }
+
+        function showMainApp() {
+            document.getElementById('mainApp').style.display = 'block';
+        }
+
+        function hideMainApp() {
+            document.getElementById('mainApp').style.display = 'none';
+        }
+
+        function showLoginError(message) {
+            const loginError = document.getElementById('loginError');
+            loginError.querySelector('p').textContent = `❌ ${message}`;
+            loginError.style.display = 'block';
+        }
+
+        function clearAllForms() {
+            document.getElementById('buyerName').value = '';
+            document.getElementById('priceRange').value = '';
+            document.getElementById('mobileNumber').value = '';
+            document.getElementById('originLocation').value = '';
+            document.getElementById('countryCode').value = 'IN';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('filterWaitTime').value = '';
+        }
+
+        // ✅ Initialize authenticated app features
+        function initializeAuthenticatedApp() {
+            setupEventListeners();
+            updateColumnVisibility();
+            
+            // Load data from Firestore if available and authenticated
+            if (isFirebaseEnabled && isAuthenticated) {
+                loadDataFromFirestore();
+            } else {
+                // Use local data
+                filterData();
+                updateStats();
+                updateFOMODisplay();
+            }
+            
+            // Add connection status indicator
+            addConnectionStatus();
+        }
+
+        // ✅ Basic page initialization (no authentication required)
+        function init() {
+            console.log("🔄 Basic page initialization...");
+            
+            // Add CSS animations for notifications
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Show login screen by default
+            showLoginScreen();
+            
+            // Add Enter key support for login
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginAdmin();
+                }
+            });
+        }
+
+        // ✅ PROTECTED FUNCTIONS (require authentication)
+        function requireAuth(functionName) {
+            if (!isAuthenticated || !currentUser) {
+                showNotification(`❌ Unauthorized: Please login to ${functionName}`, 'error');
+                return false;
+            }
+            return true;
+        }
+
+        function addBuyer() {
+            if (!requireAuth('add buyers')) return;
+
+            const name = document.getElementById('buyerName').value.trim();
+            const waitTime = parseInt(document.getElementById('waitTime').value);
+            const price = document.getElementById('priceRange').value.trim();
+            const mobile = document.getElementById('mobileNumber').value.trim();
+            const origin = document.getElementById('originLocation').value.trim();
+            const code = document.getElementById('countryCode').value;
+
+            if (!name) {
+                alert('Please enter buyer name');
+                return;
+            }
+
+            if (mobile && !/^[\+]?[0-9\s\-\(\)]{10,15}$/.test(mobile)) {
+                alert('Please enter a valid mobile number');
+                return;
+            }
+
+            const newBuyer = {
+                id: Date.now().toString(),
+                name: name,
+                waitTime: waitTime,
+                dateAdded: new Date().toISOString().split('T')[0],
+                price: price || `${68 + Math.floor(Math.random() * 4)}-${70 + Math.floor(Math.random() * 6)}`,
+                mobile: mobile || `98765432${Math.floor(Math.random() * 90) + 10}`,
+                origin: origin || 'India',
+                code: code || 'IN'
+            };
+
+            // Add to local array first for immediate UI update
+            buyersData.unshift(newBuyer);
+            
+            // Save to Firestore asynchronously
+            if (isFirebaseEnabled && isAuthenticated) {
+                addBuyerToFirestore(newBuyer).then((firestoreId) => {
+                    // Update the ID with Firestore document ID
+                    const index = buyersData.findIndex(buyer => buyer.id === newBuyer.id);
+                    if (index !== -1) {
+                        buyersData[index].id = firestoreId;
+                    }
+                });
+            }
+            
+            // Clear form
+            document.getElementById('buyerName').value = '';
+            document.getElementById('priceRange').value = '';
+            document.getElementById('mobileNumber').value = '';
+            document.getElementById('originLocation').value = '';
+            document.getElementById('countryCode').value = 'IN';
+            
+            filterData();
+            updateStats();
+            updateFOMODisplay();
+            
+            showNotification('✅ Buyer added successfully!', 'success');
+        }
+
+        function deleteBuyer(id) {
+            if (!requireAuth('delete buyers')) return;
+
+            if (confirm('Are you sure you want to remove this buyer from the waiting list?')) {
+                // Remove from local array first for immediate UI update
+                buyersData = buyersData.filter(buyer => buyer.id !== id);
+                
+                // Delete from Firestore asynchronously
+                if (isFirebaseEnabled && isAuthenticated) {
+                    deleteBuyerFromFirestore(id);
+                }
+                
+                filterData();
+                updateStats();
+                updateFOMODisplay();
+                
+                showNotification('🗑️ Buyer removed successfully!', 'success');
+            }
+        }
+
+        // ✅ FIREBASE FUNCTIONS (protected)
         async function loadDataFromFirestore() {
-            if (!isFirebaseEnabled) return;
+            if (!isFirebaseEnabled || !isAuthenticated) return;
             
             try {
                 const snapshot = await db.collection('buyers').orderBy('dateAdded', 'desc').get();
@@ -1483,7 +1525,7 @@ service cloud.firestore {
         }
 
         async function saveInitialDataToFirestore() {
-            if (!isFirebaseEnabled) return;
+            if (!isFirebaseEnabled || !isAuthenticated) return;
             
             try {
                 const batch = db.batch();
@@ -1495,6 +1537,8 @@ service cloud.firestore {
                         dateAdded: buyer.dateAdded,
                         price: buyer.price,
                         mobile: buyer.mobile,
+                        origin: buyer.origin,
+                        code: buyer.code,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
                 });
@@ -1509,7 +1553,7 @@ service cloud.firestore {
         }
 
         async function addBuyerToFirestore(buyerData) {
-            if (!isFirebaseEnabled) return buyerData.id;
+            if (!isFirebaseEnabled || !isAuthenticated) return buyerData.id;
             
             try {
                 const docRef = await db.collection('buyers').add({
@@ -1527,7 +1571,7 @@ service cloud.firestore {
         }
 
         async function deleteBuyerFromFirestore(id) {
-            if (!isFirebaseEnabled) return;
+            if (!isFirebaseEnabled || !isAuthenticated) return;
             
             try {
                 await db.collection('buyers').doc(id).delete();
@@ -1535,22 +1579,6 @@ service cloud.firestore {
                 updateFirebaseStatus('✅ Connected - Data synced', '#27ae60');
             } catch (error) {
                 console.error("Error deleting buyer from Firestore:", error);
-                handleFirebaseError(error);
-            }
-        }
-
-        async function updateBuyerInFirestore(id, updates) {
-            if (!isFirebaseEnabled) return;
-            
-            try {
-                await db.collection('buyers').doc(id).update({
-                    ...updates,
-                    lastModified: firebase.firestore.FieldValue.serverTimestamp()
-                });
-                console.log("📝 Buyer updated in Firestore:", id);
-                updateFirebaseStatus('✅ Connected - Data synced', '#27ae60');
-            } catch (error) {
-                console.error("Error updating buyer in Firestore:", error);
                 handleFirebaseError(error);
             }
         }
@@ -1585,46 +1613,50 @@ service cloud.firestore {
         }
 
         function updateFirebaseStatus(message, color) {
-            const statusElement = document.getElementById('firebaseStatus');
-            const statusElementModal = document.getElementById('firebaseStatusModal');
-            
-            if (statusElement) {
-                statusElement.innerHTML = message;
-                statusElement.style.color = color;
-            }
-            if (statusElementModal) {
-                statusElementModal.innerHTML = message;
-                statusElementModal.style.color = color;
-            }
+            const elements = ['firebaseStatus', 'firebaseStatusModal', 'firebaseStatusModalExtra'];
+            elements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = message;
+                    element.style.color = color;
+                }
+            });
         }
 
-        // Modal Functions
+        // ✅ MODAL FUNCTIONS
         function openSettingsModal() {
+            if (!requireAuth('access settings')) return;
+            
             const modal = document.getElementById('settingsModal');
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scroll
+            document.body.style.overflow = 'hidden';
             
-            // Update authentication status when modal opens
+            // Update status displays
             updateAuthStatus();
         }
 
         function closeSettingsModal(event) {
-            // Only close if clicking the overlay or close button, not the modal content
             if (event && event.target.classList.contains('modal-content')) {
                 return;
             }
             
             const modal = document.getElementById('settingsModal');
             modal.classList.remove('show');
-            document.body.style.overflow = 'auto'; // Restore background scroll
+            document.body.style.overflow = 'auto';
         }
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeSettingsModal();
+        function updateAuthStatus() {
+            const authStatusModal = document.getElementById('authStatusModal');
+            if (authStatusModal) {
+                if (isAuthenticated && currentUser && currentUser.email) {
+                    authStatusModal.innerHTML = `🔐 Authenticated (${currentUser.email})`;
+                    authStatusModal.style.color = '#27ae60';
+                } else {
+                    authStatusModal.innerHTML = '⚠️ Not Authenticated';
+                    authStatusModal.style.color = '#e74c3c';
+                }
             }
-        });
+        }
 
         // Copy security rules to clipboard
         function copySecurityRules() {
@@ -1671,8 +1703,10 @@ service cloud.firestore {
                         updateFirebaseStatus('✅ Connected - Cloud sync enabled', '#27ae60');
                         showNotification('✅ Firebase connected successfully!', 'success');
                         
-                        // Load data from Firestore
-                        loadDataFromFirestore();
+                        // Load data from Firestore if authenticated
+                        if (isAuthenticated) {
+                            loadDataFromFirestore();
+                        }
                     })
                     .catch((error) => {
                         console.error("🔥 Firestore connection retry failed:", error);
@@ -1681,43 +1715,6 @@ service cloud.firestore {
             } else {
                 showNotification('❌ Firebase not initialized. Check configuration.', 'error');
                 updateFirebaseStatus('❌ Configuration Error', '#e74c3c');
-            }
-        }
-
-        // ✅ UPDATED: Initialize only basic page setup (no data loading)
-        function init() {
-            // Only basic page setup - no data loading or authenticated features
-            console.log("🔄 Basic page initialization...");
-            
-            // Add CSS animations for notifications
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Show login screen by default
-            showLoginScreen();
-        }
-
-        function updateAuthStatus() {
-            const authStatusModal = document.getElementById('authStatusModal');
-            if (authStatusModal) {
-                // ✅ Safety check for currentUser
-                if (currentUser && currentUser.email) {
-                    authStatusModal.innerHTML = `🔐 Admin Authenticated (${currentUser.email})`;
-                    authStatusModal.style.color = '#27ae60';
-                } else {
-                    authStatusModal.innerHTML = '⚠️ Not Authenticated';
-                    authStatusModal.style.color = '#e74c3c';
-                }
             }
         }
 
@@ -1761,94 +1758,6 @@ service cloud.firestore {
                     header.classList.toggle('hidden-column', !columnVisibility[column]);
                 }
             });
-        }
-
-        function addBuyer() {
-            // ✅ Authentication check before any data operations
-            if (isFirebaseEnabled && (!currentUser || currentUser.email !== ADMIN_EMAIL)) {
-                showNotification('❌ Unauthorized: Admin login required', 'error');
-                return;
-            }
-
-            const name = document.getElementById('buyerName').value.trim();
-            const waitTime = parseInt(document.getElementById('waitTime').value);
-            const price = document.getElementById('priceRange').value.trim();
-            const mobile = document.getElementById('mobileNumber').value.trim();
-            const origin = document.getElementById('originLocation').value.trim();
-            const code = document.getElementById('countryCode').value;
-
-            if (!name) {
-                alert('Please enter buyer name');
-                return;
-            }
-
-            if (mobile && !/^[\+]?[0-9\s\-\(\)]{10,15}$/.test(mobile)) {
-                alert('Please enter a valid mobile number');
-                return;
-            }
-
-            const newBuyer = {
-                id: Date.now().toString(),
-                name: name,
-                waitTime: waitTime,
-                dateAdded: new Date().toISOString().split('T')[0],
-                price: price || `${68 + Math.floor(Math.random() * 4)}-${70 + Math.floor(Math.random() * 6)}`,
-                mobile: mobile || `98765432${Math.floor(Math.random() * 90) + 10}`,
-                origin: origin || 'India',
-                code: code || 'IN'
-            };
-
-            // Add to local array first for immediate UI update
-            buyersData.unshift(newBuyer);
-            
-            // Save to Firestore asynchronously (with auth check inside)
-            if (isFirebaseEnabled) {
-                addBuyerToFirestore(newBuyer).then((firestoreId) => {
-                    // Update the ID with Firestore document ID
-                    const index = buyersData.findIndex(buyer => buyer.id === newBuyer.id);
-                    if (index !== -1) {
-                        buyersData[index].id = firestoreId;
-                    }
-                });
-            }
-            
-            // Clear form
-            document.getElementById('buyerName').value = '';
-            document.getElementById('priceRange').value = '';
-            document.getElementById('mobileNumber').value = '';
-            document.getElementById('originLocation').value = '';
-            document.getElementById('countryCode').value = 'IN';
-            
-            filterData();
-            updateStats();
-            updateFOMODisplay();
-            
-            // Show success message
-            showNotification('✅ Buyer added successfully!', 'success');
-        }
-
-        function deleteBuyer(id) {
-            // ✅ Authentication check before any data operations
-            if (isFirebaseEnabled && (!currentUser || currentUser.email !== ADMIN_EMAIL)) {
-                showNotification('❌ Unauthorized: Admin login required', 'error');
-                return;
-            }
-
-            if (confirm('Are you sure you want to remove this buyer from the waiting list?')) {
-                // Remove from local array first for immediate UI update
-                buyersData = buyersData.filter(buyer => buyer.id !== id);
-                
-                // Delete from Firestore asynchronously (with auth check inside)
-                if (isFirebaseEnabled) {
-                    deleteBuyerFromFirestore(id);
-                }
-                
-                filterData();
-                updateStats();
-                updateFOMODisplay();
-                
-                showNotification('🗑️ Buyer removed successfully!', 'success');
-            }
         }
 
         // Notification system
@@ -1903,11 +1812,10 @@ service cloud.firestore {
             
             document.body.appendChild(statusDiv);
             
-            // Update status when auth state changes (with safety check)
+            // Update status when auth state changes
             if (isFirebaseEnabled) {
                 setInterval(() => {
-                    // ✅ Safety check for currentUser
-                    if (currentUser && currentUser.email) {
+                    if (isAuthenticated && currentUser && currentUser.email) {
                         statusDiv.textContent = '🔐 Authenticated + Cloud Sync';
                     } else {
                         statusDiv.textContent = '🔥 Cloud Sync: ON';
@@ -2069,6 +1977,8 @@ service cloud.firestore {
         }
 
         function exportData() {
+            if (!requireAuth('export data')) return;
+            
             const visibleData = filteredData.map(buyer => {
                 const row = {};
                 if (columnVisibility.name) row['Buyer Name'] = buyer.name;
@@ -2109,11 +2019,22 @@ service cloud.firestore {
             window.URL.revokeObjectURL(url);
         }
 
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSettingsModal();
+            }
+        });
+
         // Initialize the application when the page loads
         document.addEventListener('DOMContentLoaded', init);
 
-        // Auto-refresh FOMO display every 30 seconds
-        setInterval(updateFOMODisplay, 30000);
+        // Auto-refresh FOMO display every 30 seconds (only when authenticated)
+        setInterval(() => {
+            if (isAuthenticated) {
+                updateFOMODisplay();
+            }
+        }, 30000);
     </script>
 </body>
 </html>
